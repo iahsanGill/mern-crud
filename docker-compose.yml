@@ -1,0 +1,43 @@
+services:
+  db:
+    image: mongo:latest
+    container_name: rmc-database
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=rootpassword
+    ports:
+      - "27017:27017"
+    networks:
+      - rmc-network
+
+  api:
+    build:
+      context: ./api
+    container_name: rmc-backend
+    env_file:
+      - ./api/.env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - ./api:/app
+    networks:
+      - rmc-network
+
+  web:
+    build:
+      context: ./frontend
+    container_name: rmc-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/app
+    networks:
+      - rmc-network
+
+networks:
+  rmc-network:
+    driver: bridge
