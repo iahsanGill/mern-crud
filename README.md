@@ -6,9 +6,10 @@ This is a CRUD (Create, Read, Update, Delete) application built using the MERN (
 
 Before you begin, ensure you have met the following requirements:
 
-- You have installed Node.js and npm.
-- You have installed Docker and Docker Compose.
-- You have a running instance of MongoDB. You can use Docker to run MongoDB.
+- You have installed **Node.js** and **npm**.
+- You have installed **Docker** and **Docker Compose**.
+- You have a running instance of **MongoDB**. You can use Docker to run MongoDB.
+- Optionally you can install **pnpm** as I have used pnpm as my package manager in this project.
 
 ## Getting Started
 
@@ -26,29 +27,13 @@ Before you begin, ensure you have met the following requirements:
    DB_URL=mongodb://localhost:27017/your-database-name
    ```
 
-3. Build and run the backend using Docker Compose:
+## Running the project via docker compose
 
-   ```sh
-   docker-compose up --build
-   ```
+This is the recommended way to run this project.
 
-4. The backend server will be running on `http://localhost:8080`.
-
-### Frontend
-
-1. Navigate to the directory:
-
-   ```sh
-   cd frontend
-   ```
-
-2. Build and run the frontend using Docker Compose:
-
-   ```sh
-   docker-compose up --build
-   ```
-
-3. The frontend application will be running on `http://localhost:3000`.
+```sh
+docker-compose up --build
+```
 
 ## Running the Application
 
@@ -57,10 +42,12 @@ Before you begin, ensure you have met the following requirements:
 
 ## Project Structure
 
-- : Contains the backend code (Express server, MongoDB models, routes).
-- : Contains the frontend code (React application).
+- **api**: Contains the backend code (Express server, MongoDB models, routes).
+- **frontend**: Contains the frontend code (React application).
 
 ## Scripts
+
+You can use these npm scripts to run this application if you don't want to use docker.
 
 ### Backend
 
